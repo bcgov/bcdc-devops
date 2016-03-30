@@ -3,14 +3,14 @@
 
 CKAN_VERSION=2.3.3
 JDK_VERSION=7u79
-PY_VERSION=2.7.8
+PY_VERSION=2.7.6
 SOLR_VERSION=4.10.3
 
 echo "Installing CKAN version: $CKAN_VERSION"
 
 # Install and activate the Extra Packages for Enterprise Linux (EPEL) Repository
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/6Server/x86_64/epel-release-6-8.noarch.rpm
-yum -y install gcc gcc-c++ make xalan-j2 unzip libxslt libxslt-devel libxml2 libxml2-devel zlib zlib-devel wget openssl openssl-devel xml-commons git subversion pcre perl pcre-devel zlib zlib-devel GeoIP GeoIP-devel lsof httpd-devel sqlite-devel
+yum -y install gcc gcc-c++ make xalan-j2 unzip libxslt libxslt-devel libxml2 libxml2-devel zlib zlib-devel wget openssl openssl-devel xml-commons git subversion pcre perl pcre-devel zlib zlib-devel GeoIP GeoIP-devel lsof httpd-devel sqlite-devel geos-devel
 yum -y update
 wget -O /tmp/curl-7.36.0.tar.bz2 http://curl.haxx.se/download/curl-7.36.0.tar.bz2
 tar -xvf /tmp/curl-7.36.0.tar.bz2 -C /tmp
@@ -36,10 +36,10 @@ chown -R vagrant /apps/solr-4.10.3
 ln -s /apps/solr-4.10.3 /apps/solr
 
 # Install Python
-wget -O /tmp/Python-2.7.8.tgz https://www.python.org/ftp/python/2.7.8/Python-2.7.8.tgz
+wget -O /tmp/Python-2.7.6.tgz https://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
 wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
-tar -xvf /tmp/Python-2.7.8.tgz -C /tmp
-cd /tmp/Python-2.7.8
+tar -xvf /tmp/Python-2.7.6.tgz -C /tmp
+cd /tmp/Python-2.7.6
 ./configure --prefix=/usr/local --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-L/usr/pgsql-9.1/lib,-rpath /usr/local/lib"
 make && make altinstall
 /usr/local/bin/python2.7 /tmp/get-pip.py
