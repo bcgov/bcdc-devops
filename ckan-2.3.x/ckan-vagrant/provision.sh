@@ -3,7 +3,7 @@
 
 CKAN_VERSION=2.3.3
 JDK_VERSION=7u79
-PY_VERSION=2.7.6
+PY_VERSION=2.7.8
 SOLR_VERSION=4.10.3
 
 echo "Installing CKAN version: $CKAN_VERSION"
@@ -36,10 +36,10 @@ chown -R vagrant /apps/solr-4.10.3
 ln -s /apps/solr-4.10.3 /apps/solr
 
 # Install Python
-wget -O /tmp/Python-2.7.6.tgz https://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+wget -O /tmp/Python-2.7.8.tgz https://www.python.org/ftp/python/2.7.8/Python-2.7.8.tgz
 wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
-tar -xvf /tmp/Python-2.7.6.tgz -C /tmp
-cd /tmp/Python-2.7.6
+tar -xvf /tmp/Python-2.7.8.tgz -C /tmp
+cd /tmp/Python-2.7.8
 ./configure --prefix=/usr/local --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-L/usr/pgsql-9.1/lib,-rpath /usr/local/lib"
 make && make altinstall
 /usr/local/bin/python2.7 /tmp/get-pip.py
