@@ -10,7 +10,7 @@ echo "Installing CKAN version: $CKAN_VERSION"
 
 # Install and activate the Extra Packages for Enterprise Linux (EPEL) Repository
 rpm -Uvh https://dl.fedoraproject.org/pub/epel/6Server/x86_64/epel-release-6-8.noarch.rpm
-yum -y install gcc gcc-c++ make xalan-j2 unzip libxslt libxslt-devel libxml2 libxml2-devel zlib zlib-devel wget openssl openssl-devel xml-commons git subversion pcre perl pcre-devel zlib zlib-devel GeoIP GeoIP-devel lsof httpd-devel sqlite-devel
+yum -y install gcc gcc-c++ make xalan-j2 unzip libxslt libxslt-devel libxml2 libxml2-devel zlib zlib-devel wget openssl openssl-devel xml-commons git subversion pcre perl pcre-devel zlib zlib-devel GeoIP GeoIP-devel lsof httpd-devel sqlite-devel geos-devel
 yum -y update
 wget -O /tmp/curl-7.36.0.tar.bz2 http://curl.haxx.se/download/curl-7.36.0.tar.bz2
 tar -xvf /tmp/curl-7.36.0.tar.bz2 -C /tmp
