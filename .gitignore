@@ -63,6 +63,7 @@ target/
 
 # Vagrant
 *.vagrant
+*/src/
 
 # System Files
 *.DS_Store

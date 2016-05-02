@@ -1,7 +1,7 @@
 #!/bin/bash
 # KF 2016/01/21:  Add datapusher details, modify ckan version
 
-CKAN_VERSION=2.3.4
+CKAN_VERSION=master
 JDK_VERSION=7u79
 PY_VERSION=2.7.8
 SOLR_VERSION=4.10.3
