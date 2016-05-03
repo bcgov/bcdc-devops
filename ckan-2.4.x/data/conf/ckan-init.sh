@@ -29,7 +29,7 @@ virtualenv --no-site-packages /usr/lib/ckan/default
 . /usr/lib/ckan/default/bin/activate
 
 # install ckan
-pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.3.4#egg=ckan'
+pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.4.3#egg=ckan'
 # install dependencies
 pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
 
