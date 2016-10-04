@@ -57,6 +57,12 @@ Optional: If you wish to use ssh natively or want to use scp, copy the output fr
 2. If you've installed the bcgov vagrant before, please review the differences section at the bottom of this document.
 
 
+Note*: the ckan-init.sh can now run as a script, but might have some hidden issues
+        
+        cd /apps/ckan/conf
+        sh ckan-init.sh
+
+
 ## Creating a Sysadmin account
 
         paster --plugin=ckan sysadmin add <username> -c /apps/ckan/conf/development.ini
@@ -93,8 +99,11 @@ Optional: If you wish to use ssh natively or want to use scp, copy the output fr
             kill -9 <id>
 
 ## To stop solr
+        
         /apps/solr/bin/solr stop -p 8983
+
 ## To stop the db
+        
         pg_ctl -D /usr/lib/ckan/default/data stop
 
 
@@ -104,10 +113,13 @@ TODO
 
 # Run Ckan Tests
 1. Go into the ckan source directory
+        
         cd ~/ckan/src/ckan
 
 2. Run this command to begin testing, this will take awhile...
+        
         nosetests --ckan --reset-db --with-pylons=/apps/ckan/conf/test-core.ini --nologcapture --with-coverage --cover-package=ckan --cover-package=ckanext ckan ckanext
+
 
 # Troubleshooting
 ## Debug Mode

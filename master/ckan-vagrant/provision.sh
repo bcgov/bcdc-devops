@@ -20,8 +20,6 @@ cd /tmp/curl-7.36.0
 wget -O /tmp/postgres-9.1.13-1.x86_64.openscg.rpm http://oscg-downloads.s3.amazonaws.com/packages/postgres-9.1.13-1.x86_64.openscg.rpm
 yum -y localinstall /tmp/postgres-9.1.13-1.x86_64.openscg.rpm
 ln -s /opt/postgres/9.1 /usr/pgsql-9.1
-/usr/sbin/groupadd postgres
-/usr/sbin/useradd -g postgres postgres
 
 # Install JDK7
 wget -O /tmp/jdk-7u79-linux-x64.rpm --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.rpm"

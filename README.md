@@ -15,12 +15,15 @@ Instructions and deatils are provided in the README.md file for each version.
     - Gone, not necessary anymore
 
 - master
+    - update centos box to 6.8
+    - updated ckan-init.sh, should be able to just run the script
     - Updated provision.sh
         - added Redis v3.2.4 (source install)
         - updated Python to v2.7.12
         - added Nodejs/npm from offical yum repo
         
 - v2.5.x
+    - update centos box to 6.8
 
 ## 2016/05/02 - Adding ckan versions 2.4.3, 2.5.2 and master vagrant installs
 - v2.3.x
