@@ -63,7 +63,10 @@ target/
 
 # Vagrant
 *.vagrant
-*/src/
+**/src/
+**who.ini
+**/logs/
+*/conf/data
 
 # System Files
 *.DS_Store

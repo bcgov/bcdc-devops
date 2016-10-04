@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
   source = "../data"
   ckan_src = "../src"
   config.vm.define "vanilla_ckan_2.5.2"
-  config.vm.box = "bento/centos-6.7"
+  config.vm.box = "bento/centos-6.8"
   config.vm.box_check_update = false
   config.vm.provider :virtualbox do |vb|
    vb.name = "vagrant_ckan_2.5.2"

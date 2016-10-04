@@ -1,16 +1,29 @@
 # Vanilla Ckan master - Vagrant
 Authors: jared@highwaythreesolutions.com
 
+
+# VM info
+* CentOS 6.8 bento box
+* Python 2.7.12
+* Solr 4.10.3
+* Postgres 9.1
+* Nodejs v0.10.42 (from 4.el6 epel)
+* npm 1.3.6 (from 4.el6 epel)
+
+
 # Required Software
 * VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 * Vagrant: http://www.vagrantup.com/downloads
 
-# Setup Host System
+
+# Install
+## Setup Host System
 1. Install Vagrant on your host machine
     * For how-to instructions on installing Vagrant: https://docs.vagrantup.com/v2/installation/
 2. Install VirtualBox on your host machine
 
-# Setup VM with Vagrant
+
+## Setup VM with Vagrant
 1. Open up a terminal/console window and go to the directory where the 'Vagrantfile' lives
 
 		cd /path/to/vanilla_ckan/ckan-vagrant
@@ -35,7 +48,8 @@ Optional: If you wish to use ssh natively or want to use scp, copy the output fr
 
     Note*: you will also need to be in the same directory as the 'Vagrantfile' when you run this command
 
-# Setup the Dev Environment
+
+## Setup the Dev Environment
 1. Open the ckan-init.sh script in your favourite text editor
 	* We'll be copying the commands listed in the script
     * Review output as steps are executed
@@ -43,9 +57,10 @@ Optional: If you wish to use ssh natively or want to use scp, copy the output fr
 2. If you've installed the bcgov vagrant before, please review the differences section at the bottom of this document.
 
 
-# Creating a Sysadmin account
+## Creating a Sysadmin account
 
         paster --plugin=ckan sysadmin add <username> -c /apps/ckan/conf/development.ini
+
 
 # Startup
 1. Run these commands to start ckan after startup:
@@ -87,24 +102,17 @@ Optional: If you wish to use ssh natively or want to use scp, copy the output fr
 TODO
 
 
-# Google Analytics
-1. To use the GA extension, open the development.ini file in any text editor
-2. Uncomment the line, near 'ckan.plugins', where it says 'googleanalytics ga-report'
-3. Find the 'googleanalytics' settings, and edit the options accordingly
-4. Go to the extensions readme: https://github.com/ckan/ckanext-googleanalytics#setting-up-statistics-retrieval-from-google-analytics
-    * follow the instructions
+# Run Ckan Tests
+1. Go into the ckan source directory
+        cd ~/ckan/src/ckan
 
-# Differences between bcgov install and vanilla installed
-1. Port numbers
-    * 5050: ckan
-    * 8984: host access to solr
-        - this is to prevent a conflict if you're also running the bcgov vagrant
-        - however, both bcgov and vanilla ckan vms, still use the default solr config
-    * 2220: host access to ssh
-        - this is to prevent a conflict if you're also running the bcgov vagrant
-3. ckan install
-    * for this vm, ckan was installed from the github repo using version 2.3.3
-    * on the bcgov vm, ckan is installed via pip
-    * the reason for the different install was the pip version was throwing errors on the 'db init' paster command, where as the github version didn't have that issue
-4. db
-    * 'datastore set-permissions' paster command is done for the 'datastore_default' tables
+2. Run this command to begin testing, this will take awhile...
+        nosetests --ckan --reset-db --with-pylons=/apps/ckan/conf/test-core.ini --nologcapture --with-coverage --cover-package=ckan --cover-package=ckanext ckan ckanext
+
+# Troubleshooting
+## Debug Mode
+- TODO: use ckan instructions and use the less compiler
+- AttributeError: 'module' object has no attribute 'css/main.debug.css'
+    - fix:
+            cp /usr/lib/ckan/default/src/ckan/ckan/public/base/css/main.css /usr/lib/ckan/default/src/ckan/ckan/public/base/css/main.debug.css
+
