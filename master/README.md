@@ -71,9 +71,9 @@ Note*: ckan-init.sh can run as a script now, but might have some issues, use at 
 # Startup
 1. Run these commands to start ckan after startup:
 
-		. /usr/lib/ckan/default/bin/activate
+		. /usr/lib/ckan/ckan_env/bin/activate
 
-		pg_ctl -D /usr/lib/ckan/default/data -l /apps/logs/db/db.log start
+		pg_ctl -D /usr/lib/ckan/ckan_env/data -l /apps/logs/db/db.log start
 
 		/apps/solr/bin/solr start
 
@@ -104,7 +104,7 @@ Note*: ckan-init.sh can run as a script now, but might have some issues, use at 
 
 ## To stop the db
         
-        pg_ctl -D /usr/lib/ckan/default/data stop
+        pg_ctl -D /usr/lib/ckan/ckan_env/data stop
 
 
 # Making contributions to ckan and extensions
@@ -126,5 +126,5 @@ TODO
 - TODO: use ckan instructions and use the less compiler
 - AttributeError: 'module' object has no attribute 'css/main.debug.css'
     - fix:
-            cp /usr/lib/ckan/default/src/ckan/ckan/public/base/css/main.css /usr/lib/ckan/default/src/ckan/ckan/public/base/css/main.debug.css
+            cp /usr/lib/ckan/ckan_env/src/ckan/ckan/public/base/css/main.css /usr/lib/ckan/ckan_env/src/ckan/ckan/public/base/css/main.debug.css
 
