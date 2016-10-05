@@ -57,7 +57,7 @@ Optional: If you wish to use ssh natively or want to use scp, copy the output fr
 2. If you've installed the bcgov vagrant before, please review the differences section at the bottom of this document.
 
 
-Note*: ckan-init.sh can run as a script now, but might have some issues, use at your own discretion 
+Note: ckan-init.sh *can* be executed as a script now, but might have some issues, use at your own discretion 
         
         cd /apps/ckan/conf
         sh ckan-init.sh
@@ -73,7 +73,7 @@ Note*: ckan-init.sh can run as a script now, but might have some issues, use at 
 
 		. /usr/lib/ckan/ckan_env/bin/activate
 
-		pg_ctl -D /usr/lib/ckan/ckan_env/data -l /apps/logs/db/db.log start
+		pg_ctl -D /usr/lib/ckan/data -l /apps/logs/db/db.log start
 
 		/apps/solr/bin/solr start
 
@@ -104,7 +104,7 @@ Note*: ckan-init.sh can run as a script now, but might have some issues, use at 
 
 ## To stop the db
         
-        pg_ctl -D /usr/lib/ckan/ckan_env/data stop
+        pg_ctl -D /usr/lib/ckan/data stop
 
 
 # Making contributions to ckan and extensions

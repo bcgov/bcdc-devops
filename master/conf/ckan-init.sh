@@ -51,8 +51,8 @@ initdb -D /usr/lib/ckan/data
 pg_ctl -D /usr/lib/ckan/data -l /apps/logs/db/db.log start
 
 until [ -S /tmp/.s.PGSQL.5432 ] ; do
- /bin/echo "Waiting for PostgreSQL to start..."
- /bin/sleep 1
+	/bin/echo "Waiting for PostgreSQL to start..." \
+	/bin/sleep 1
 done
 
 psql -wd postgres -c "create user ckan_default with password 'pass'"
@@ -83,6 +83,8 @@ paster --plugin=ckan datastore set-permissions -c /apps/ckan/conf/development.in
 
 echo ""
 echo "Ckan has been installed and is ready to run."
+
+exit 0
 # start datapusher
 #datapusher /apps/ckan/conf/datapusher_settings.py &
 # start ckan
