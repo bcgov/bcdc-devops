@@ -57,7 +57,7 @@ Optional: If you wish to use ssh natively or want to use scp, copy the output fr
 2. If you've installed the bcgov vagrant before, please review the differences section at the bottom of this document.
 
 
-Note*: the ckan-init.sh can now run as a script, but might have some hidden issues
+Note*: ckan-init.sh can run as a script now, but might have some issues, use at your own discretion 
         
         cd /apps/ckan/conf
         sh ckan-init.sh
