@@ -6,7 +6,7 @@
 # Adjusting path environments
 echo 'export JAVA_HOME=/usr/java/latest' >> ~/.bashrc
 echo 'export PATH=$JAVA_HOME/bin:$PATH:/usr/pgsql-9.1/bin' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH==$JAVA_HOME/lib:$LD_LIBRARY_PATH:/usr/pgsql-9.1/lib' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=$JAVA_HOME/lib:/usr/pgsql-9.1/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
 
 sudo chown -R `whoami`:`whoami` /apps
